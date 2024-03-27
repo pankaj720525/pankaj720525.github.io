@@ -1,8 +1,0 @@
-{
-  "id": "nanoid",
-  "image": "base64Image",
-  "billingAddress": "Address",
-  "companyName": "Testing Company",
-  "companyEmail": "Company@email.com",
-  "companyMobile": "0811111111"
-}
