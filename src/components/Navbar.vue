@@ -1,19 +1,27 @@
 <template lang="">
-    <div class="h-[50px] bg-white px-[20px] flex justify-between items-center">
-        <div class="hidden">
-            <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    <div class="h-[50px] bg-white dark:bg-gray-800 px-[20px] flex justify-between items-center">
+        <div class="cursor-pointer w-[30px]" @click="$emit('toggle-sidebar')">
+            <div :class="{ 'dark-mode': isDarkMode }">
+                <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="menu-icon" x="3" y="6" width="18" height="2"/>
+                    <rect class="menu-icon" x="3" y="11" width="18" height="2"/>
+                    <rect class="menu-icon" x="3" y="16" width="18" height="2"/>
                 </svg>
-            </button>
+            </div>
+        </div>
+        <div :class="{ 'dark': isDarkMode }">
+            <DarkModeSwitch />
         </div>
     </div>
 </template>
 <script>
+import DarkModeSwitch from '../components/Switch.vue';
+
 export default {
-    
+    components: {
+        DarkModeSwitch,
+    },
 }
 </script>
 <style lang="">
-    
 </style>
