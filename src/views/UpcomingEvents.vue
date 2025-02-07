@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is Upcoming Events</h1>
+    <h1 class="dark:text-white">This is Upcoming Events</h1>
   </div>
 </template>
 

@@ -1,15 +1,14 @@
-<!-- Switch.vue -->
 <template>
   <div class="theme-switch">
-    <input type="checkbox" class="checkbox" id="checkbox" @change="toggleDarkMode()" />
+    <input type="checkbox" class="checkbox" id="checkbox" @click="$emit('toggleDarkMode')" />
     <label for="checkbox" class="label">
-      <svg class="moon" width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+      <svg class="moon" width="15" height="15" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
           d="M3 11.5066C3 16.7497 7.25034 21 12.4934 21C16.2209 21 19.4466 18.8518 21 15.7259C12.4934 15.7259 8.27411 11.5066 8.27411 3C5.14821 4.55344 3 7.77915 3 11.5066Z"
           stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
-      <svg class="sun" width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+      <svg class="sun" width="15" height="15" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
           d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
@@ -29,60 +28,12 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import Cookies from 'js-cookie';
 export default {
-  data() {
-    return {
-      isDarkMode: false,
-    };
+  props: {
+    isDarkMode: Boolean, // Now correctly receiving dark mode state
   },
-  setup() {
-    const isDarkMode = ref(false);
-
-    const toggleDarkMode = () => {
-      isDarkMode.value = !isDarkMode.value;
-
-      const btn = document.querySelector(".theme-switch input");
-      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-      if (prefersDarkScheme.matches) {
-        document.documentElement.classList.toggle("light");
-      } else {
-        document.documentElement.classList.toggle("dark");
-      }
-      if (isDarkMode.value) {
-        document.documentElement.classList.add('dark');
-        Cookies.set('darkMode', 'true', { expires: 7 });
-      } else {
-        document.documentElement.classList.remove('dark');
-        Cookies.set('darkMode', 'false', { expires: 7 });
-      }
-    };
-
-    onMounted(() => {
-      const darkModeCookie = Cookies.get('darkMode');
-      const btn = document.querySelector(".theme-switch input");
-      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-      if (prefersDarkScheme.matches) {
-        document.documentElement.classList.toggle("light");
-      } else {
-        document.documentElement.classList.toggle("dark");
-      }
-      if (darkModeCookie === 'true') {
-        isDarkMode.value = true;
-        document.documentElement.classList.add('dark');
-      }
-    });
-
-    return {
-      isDarkMode,
-      toggleDarkMode,
-    };
-  },
+  emits: ['toggleDarkMode']
 };
-
 </script>
 
 <style scoped>
@@ -106,11 +57,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 5px;
   border-radius: 50px;
   position: relative;
-  height: 40px;
-  width: 80px;
+  height: 25px;
+  width: 50px;
   cursor: pointer;
   box-shadow: var(--switch-shadow);
   transition: var(--transition);
@@ -126,10 +77,10 @@ export default {
   background-color: var(--text-color);
   position: absolute;
   border-radius: 50%;
-  top: 4px;
-  left: 3px;
-  height: 30px;
-  width: 30px;
+  top: 2px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
 }
 
 .theme-switch .moon {
@@ -151,12 +102,12 @@ export default {
 }
 
 .dark .theme-switch .ball {
-  transform: translatex(40px);
+  transform: translatex(24px);
 }
 
 @media (prefers-color-scheme: dark) {
   .theme-switch .ball {
-    transform: translatex(40px);
+    transform: translatex(24px);
   }
 
   .light .theme-switch .ball {

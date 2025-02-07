@@ -1,23 +1,23 @@
 <template>
     <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md h-[100%]">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">EMI Calculator</h2>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">EMI Calculator</h2>
             
             <!-- Loan Amount -->
             <div class="mb-4">
-                <label class="block text-gray-600 dark:text-gray-300">Loan Amount (₹)</label>
+                <label class="block text-gray-600 dark:text-gray-300 text-sm">Loan Amount (₹)</label>
                 <div class="flex items-center space-x-2">
                     <input type="range" v-model="loanAmount" minlength="0" min="10000" max="8000000" step="50000"
                     class="w-full cursor-pointer custom-slider" @input="updateChart" />
-                    <input type="number" v-model="loanAmount" class="w-32 border dark:bg-gray-800 p-2 rounded-md text-center" />
+                    <input type="number" v-model="loanAmount" class="w-32 border dark:bg-gray-800 p-2 rounded-md text-center dark:text-white" />
                 </div>
             </div>
 
             <!-- Interest Rate -->
             <div class="mb-4">
               <div class="flex items-center justify-between space-x-2">
-                <label class="block text-gray-600 dark:text-gray-300">Rate of Interest (p.a %)</label>
-                <input type="number" v-model="interestRate" class="w-20 border p-2 dark:bg-gray-800 rounded-md text-center" />
+                <label class="block text-gray-600 dark:text-gray-300 text-sm">Rate of Interest (p.a %)</label>
+                <input type="number" v-model="interestRate" class="w-20 border p-2 dark:bg-gray-800 rounded-md text-center dark:text-white" />
               </div>
                 <div class="">
                     <input type="range" v-model="interestRate" min="1" max="20" step="0.1"
@@ -28,8 +28,8 @@
             <!-- Loan Tenure -->
             <div class="mb-4">
               <div class="flex items-center justify-between space-x-2">
-                <label class="block text-gray-600 dark:text-gray-300">Loan Tenure (Years)</label>
-                <input type="number" v-model="loanTenure" class="w-16 border p-2 dark:bg-gray-800 rounded-md text-center" />
+                <label class="block text-gray-600 dark:text-gray-300 text-sm">Loan Tenure (Years)</label>
+                <input type="number" v-model="loanTenure" class="w-16 border p-2 dark:bg-gray-800 rounded-md text-center dark:text-white" />
               </div>
               <div>
                   <input type="range" v-model="loanTenure" min="1" max="30" step="1"
@@ -38,9 +38,9 @@
             </div>
     
             <!-- EMI Results -->
-            <div class="mt-6 p-4 bg-gray-100 dark:bg-gray-900 rounded">
+            <div class="mt-6 p-4 bg-gray-100 dark:bg-gray-900 rounded dark:text-white">
                 <h3 class="text-lg font-bold dark:text-slate-300">Loan Summary</h3>
-                <p class="text-lg font-bold">Monthly EMI: <span class="text-teal-600">₹{{ monthlyEMI.toLocaleString() }}</span></p>
+                <p class="text-lg font-bold">Monthly EMI: <span class="text-teal-500">₹{{ monthlyEMI.toLocaleString() }}</span></p>
                 <p>Principal Amount: <span class="font-bold dark:text-slate-300">₹{{ loanAmount.toLocaleString() }}</span></p>
                 <p>Total Interest: <span class="font-bold">₹{{ totalInterest.toLocaleString() }}</span></p>
                 <p>Total Payment: <span class="font-bold">₹{{ totalPayment.toLocaleString() }}</span></p>
@@ -63,7 +63,7 @@ export default {
   },
   data() {
     return {
-      loanAmount: 1,
+      loanAmount: 100000,
       interestRate: 7.5,
       loanTenure: 10,
       chartOptions: {
