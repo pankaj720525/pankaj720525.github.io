@@ -4,51 +4,51 @@
             <h1 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Stock Average Calculator</h1>
             <div class="grid grid-cols-2 gap-6">
                 <div>
-                    <h3 class="text-bold text-2md">First Buying</h3>
+                    <h3 class="text-bold text-2md dark:text-white">First Buying</h3>
                     <div class="mt-3">
                         <label class="block text-gray-800">Quantity</label>
                         <input 
                             v-model.number="quantity1"
                             type="number"
-                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100"
+                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100 dark:text-white"
                             />
                     </div>
                     <div class="mt-3">
-                        <label class="block text-gray-800">Buying Price Per Share</label>
+                        <label class="block text-gray-800 dark:text-gray-300">Buying Price Per Share</label>
                         <input 
                             v-model.number="price1"
                             type="number"
-                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100"
+                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100 dark:text-white"
                             />
                     </div>
-                    <div v-if="showResults" class="mt-3 font-bold"><span class="text-sm font-semibold">Invested amount in the 1st Buying:</span> <span class="font-bold text-teal-500 break-words">{{ firstInvestment.toLocaleString() }}</span></div>
+                    <div v-if="showResults" class="mt-3 font-bold"><span class="text-sm font-semibold dark:text-white">Invested amount in the 1st Buying:</span> <span class="font-bold text-teal-500 break-words">{{ firstInvestment.toLocaleString() }}</span></div>
                 </div>
                 <div>
-                    <h3>Second Buying</h3>
+                    <h3 class="text-bold text-2md dark:text-white">Second Buying</h3>
                     <div class="mt-3">
-                        <label class="block text-gray-800">Quantity</label>
+                        <label class="block text-gray-800 dark:text-gray-300">Quantity</label>
                         <input 
                             v-model.number="quantity2"
                             type="number"
-                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100"
+                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100 dark:text-white"
                             />
                     </div>
                     <div class="mt-3">
-                        <label class="block text-gray-800">Buying Price Per Share</label>
+                        <label class="block text-gray-800 dark:text-gray-300">Buying Price Per Share</label>
                         <input 
                             v-model.number="price2"
                             type="number"
-                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100"
+                            class="w-full p-2 border border-gray-400 dark:bg-gray-900 rounded focus:ring focus:ring-blue-100 dark:text-white"
                             />
                     </div>
-                    <div v-if="showResults" class="mt-3"> <span class="text-sm font-semibold">Invested amount in the 2nd Buying:</span> <span class="font-bold text-teal-500 break-words">{{ secondInvestment.toLocaleString() }}</span></div>
+                    <div v-if="showResults" class="mt-3"> <span class="text-sm font-semibold dark:text-white">Invested amount in the 2nd Buying:</span> <span class="font-bold text-teal-500 break-words">{{ secondInvestment.toLocaleString() }}</span></div>
                 </div>
             </div>
             <!-- Result -->
             <div v-if="showResults" class="mt-4 p-4 bg-gray-100 dark:bg-gray-900 rounded text-center">
-                <h3 class="text-lg font-semibold">Investment Summary</h3>
-                <p class="text-2xl font-bold">Total Investment: <span class="text-teal-500 break-words">{{ totalInvestment.toLocaleString() }}</span></p>
-                <p class="text-2xl font-bold"> Average Price Per Share: <span class="text-teal-500 break-words">{{ averagePrice.toLocaleString() }}</span> </p>
+                <h3 class="text-lg font-semibold dark:text-white">Investment Summary</h3>
+                <p class="text-2xl font-bold dark:text-white">Total Investment: <span class="text-teal-500 break-words">{{ totalInvestment.toLocaleString() }}</span></p>
+                <p class="text-2xl font-bold dark:text-white"> Average Price Per Share: <span class="text-teal-500 break-words">{{ averagePrice.toLocaleString() }}</span> </p>
             </div>
             <div class="mt-6 flex justify-between">
                 <button
