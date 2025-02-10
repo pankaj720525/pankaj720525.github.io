@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'pm-helpers',
+  base: 'pankaj720525.github.io',
   plugins: [
     vue(),
     vueDevTools(),
